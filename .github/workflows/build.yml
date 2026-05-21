@@ -1,0 +1,35 @@
+name: Build
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build Debug
+        run: |
+          xcodebuild -project HeadsetMicGuard.xcodeproj \
+            -scheme HeadsetMicGuard \
+            -configuration Debug \
+            -destination 'platform=macOS' \
+            build CODE_SIGNING_ALLOWED=NO
+
+      - name: Build Release
+        run: scripts/build-release.sh
+
+      - name: Build DMG
+        run: scripts/make-dmg.sh
+
+      - name: Upload DMG artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: HeadsetMicGuard-dmg
+          path: build/release/HeadsetMicGuard-*.dmg

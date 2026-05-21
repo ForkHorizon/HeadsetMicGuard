@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct HeadsetMicGuardApp: App {
+    @StateObject private var guardModel = AudioInputGuard()
+
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+        MenuBarExtra {
+            ContentView(model: guardModel)
+        } label: {
+            Image(nsImage: guardModel.menuBarIcon)
         }
+        .menuBarExtraStyle(.menu)
     }
 }
