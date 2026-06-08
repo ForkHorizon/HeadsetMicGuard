@@ -4,7 +4,15 @@ HeadsetMicGuard is a lightweight macOS menu bar app that keeps your preferred mi
 
 It is built for the common AirPods workflow: keep AirPods as the output device, but force macOS input back to the MacBook microphone when Bluetooth reconnects or automatic device switching changes the default input.
 
+## Status
+
+Active small-utility release. Current public release: `v1.0`.
+
+## Screenshot / Demo
+
 ![HeadsetMicGuard app icon](HeadsetMicGuard/Assets.xcassets/AppIcon.appiconset/AppIcon-128x128@2x.png)
+
+A menu bar screenshot/GIF is planned for a future documentation update.
 
 ## Features
 
