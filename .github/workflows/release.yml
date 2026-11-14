@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   release:
-    runs-on: macos-latest
+    runs-on: [self-hosted, macOS, ARM64, ci-scope]
 
     env:
       SIGN_IDENTITY: ${{ secrets.DEVELOPER_ID_APPLICATION }}
